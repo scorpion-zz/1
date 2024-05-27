@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} {% endblock %}</title>
+    <style>
+.center {
+display: block;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+}
+    </style>
+</head>
+<body>
+    <div class="main" style="display:flex; gap:10px">
+        {% for avtor in avtors %}
+        <div class="card_avtor"
+             style="width: 200px; height:300px;background: aquamarine; display: flex; justify-content: center;flex-direction:column; align-items: center;">
+            <div class="card_img" style="max-width: 150px; max-height: 150px; ">
+                {% if avtor.id == 1 %}
+                    <a href="{% url 'page1' %}"> <img src="{{ avtor.foto.url }}" alt="" style="width: 100%; height: 100%;"></a>
+                {% else %}
+                    <a href="{% url 'page2' %}"> <img src="{{ avtor.foto.url }}" alt="" style="width: 100%; height: 100%;"></a>
+                {% endif %}
+            </div>
+            <p class="name_familia">{{ avtor.name }} {{ avtor.familia }} </p>
+            <p class="date_of_birthday"> Дата рождения: {{ avtor.date }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="container">
+    {% block content %} {% endblock %}
+    </div>
+</body>
+</html>

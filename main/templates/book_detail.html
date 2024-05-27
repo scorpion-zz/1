@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>{{ book.name }}</p>
+ <div class="card_book_img" style="width: 150px; height: 100px; ">
+        <img src="{{book.image.url}}" style="max-width: 100%; max-height: 100%;" class="center" >
+    </div>
+<p>{{book.short_description}}</p>
+
+<p>Comment</p>
+{% for buk in book.review_set.all %}
+<div class="comment" style="display:flex; ">
+<p>{{buk.review}}</p>
+    </div>
+{% endfor %}
+<div class="" style="display:flex; gap:10px">
+<a href="{% url 'm' %}" style="padding:5px; background: red; display:inline;">
+    Na Glavn</a>
+</div>
+</body>
+</html>
