@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from main.models import Avtor, Book, Review
 
+# /23456789098765
 
 def get():
     avtors = Avtor.objects.all()
